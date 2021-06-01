@@ -6,7 +6,7 @@ class Page2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Text('halaman 2')),
+        appBar: AppBar(title: Text('multi bloc')),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

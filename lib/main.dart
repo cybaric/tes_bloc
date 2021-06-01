@@ -45,8 +45,8 @@ class MainPage extends StatelessWidget {
             children: <Widget>[
               BlocBuilder<ColorBloc, Color>(
                 builder: (context, currentColor) => AnimatedContainer(
-                  width: 300,
-                  height: 400,
+                  width: 250,
+                  height: 320,
                   color: currentColor,
                   duration: Duration(seconds: 3),
                 ),
