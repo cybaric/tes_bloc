@@ -44,10 +44,10 @@ class MainPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               BlocBuilder<ColorBloc, Color>(
-                builder: (context, currentColor) => AnimatedContainer(
+                builder: (context, color) => AnimatedContainer(
                   width: 250,
                   height: 320,
-                  color: currentColor,
+                  color: color,
                   duration: Duration(seconds: 3),
                 ),
               ),
