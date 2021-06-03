@@ -23,7 +23,7 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.amber,
+          backgroundColor: Color(0xff901010),
           child: Icon(Icons.exit_to_app),
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -31,37 +31,69 @@ class MainPage extends StatelessWidget {
             }));
           }),
       appBar: AppBar(
-        title: Center(child: Text('tes bloc')),
-      ),
-      body: Center(
-        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: <
-            Widget>[
-          BlocBuilder<ColorBloc, Color>(
-            builder: (context, color) => AnimatedContainer(
-              width: 250,
-              height: 320,
-              color: color,
-              duration: Duration(seconds: 3),
+        backgroundColor: Color(0xffff7010),
+        title: Center(child: Text('Single Bloc')),
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.settings,
             ),
+            onPressed: () {},
           ),
           SizedBox(
-            height: 30,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              GestureDetector(
-                  onTap: () =>
-                      context.read<ColorBloc>().add(ColorEvent.to_purple),
-                  child:
-                      Container(color: Colors.purple, width: 40, height: 40)),
-              GestureDetector(
-                  onTap: () =>
-                      context.read<ColorBloc>().add(ColorEvent.to_green),
-                  child: Container(color: Colors.green, width: 40, height: 40)),
-            ],
-          ),
-        ]),
+            width: 20,
+          )
+        ],
+      ),
+      body: Center(
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              BlocBuilder<ColorBloc, Color>(
+                builder: (context, color) => AnimatedContainer(
+                  decoration:
+                      BoxDecoration(borderRadius: BorderRadius.circular(40),color: color),
+                  width: 250,
+                  height: 320,
+                  duration: Duration(seconds: 2),
+                ),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  GestureDetector(
+                      onTap: () =>
+                          context.read<ColorBloc>().add(ColorEvent.to_purple),
+                      child: Container(
+                          decoration: BoxDecoration(
+                              color: Colors.purple,
+                              borderRadius: BorderRadius.circular(20)),
+                          width: 40,
+                          height: 40)),
+                  GestureDetector(
+                      onTap: () =>
+                          context.read<ColorBloc>().add(ColorEvent.to_green),
+                      child: Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: Colors.green),
+                          width: 40,
+                          height: 40)),
+                          GestureDetector(
+                      onTap: () =>
+                          context.read<ColorBloc>().add(ColorEvent.to_amber),
+                      child: Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: Colors.amber),
+                          width: 40,
+                          height: 40)),
+                ],
+              ),
+            ]),
       ),
     );
   }
