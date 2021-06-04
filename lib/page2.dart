@@ -19,22 +19,40 @@ class Page2 extends StatelessWidget {
           )),
           title: Text('Multi Bloc'),
           actions: [
-            Center(child: Text('Save')),
+            Column(
+              children: [
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.save),
+                  color: Colors.purple,
+                ),
+                Text('Save',style: TextStyle(fontSize: 10),)
+              ],
+            ),
             Container(
-              width: 20,
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.favorite),
-              color: Colors.pinkAccent,
+              width: 10),
+            Column(
+              children: [
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.favorite),
+                  color: Colors.pinkAccent,
+                ),
+                Text('Favorite',style: TextStyle(fontSize: 10),)
+              ],
             ),
             Container(
-              width: 20,
+              width: 10,
             ),
-            IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.delete_forever),
-                color: Colors.red),
+            Column(
+              children: [
+                IconButton(
+                    onPressed: () {},
+                    icon: Icon(Icons.delete_forever),
+                    color: Colors.red),
+                    Text('Delete',style: TextStyle(fontSize: 10),)
+              ],
+            ),
             Container(
               width: 10,
             )

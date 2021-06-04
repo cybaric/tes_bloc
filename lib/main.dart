@@ -46,54 +46,54 @@ class MainPage extends StatelessWidget {
         ],
       ),
       body: Center(
-        child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              BlocBuilder<ColorBloc, Color>(
-                builder: (context, color) => AnimatedContainer(
-                  decoration:
-                      BoxDecoration(borderRadius: BorderRadius.circular(40),color: color),
-                  width: 250,
-                  height: 320,
-                  duration: Duration(seconds: 2),
-                ),
+        child: ListView(children: [
+          BlocBuilder<ColorBloc, Color>(
+            builder: (context, color) => Center(
+              child: AnimatedContainer(margin: EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(40), color: color),
+                width: 250,
+                height: 320,
+                duration: Duration(seconds: 2),
               ),
-              SizedBox(
-                height: 30,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  GestureDetector(
-                      onTap: () =>
-                          context.read<ColorBloc>().add(ColorEvent.to_purple),
-                      child: Container(
-                          decoration: BoxDecoration(
-                              color: Colors.purple,
-                              borderRadius: BorderRadius.circular(20)),
-                          width: 40,
-                          height: 40)),
-                  GestureDetector(
-                      onTap: () =>
-                          context.read<ColorBloc>().add(ColorEvent.to_green),
-                      child: Container(
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: Colors.green),
-                          width: 40,
-                          height: 40)),
-                          GestureDetector(
-                      onTap: () =>
-                          context.read<ColorBloc>().add(ColorEvent.to_amber),
-                      child: Container(
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: Colors.amber),
-                          width: 40,
-                          height: 40)),
-                ],
-              ),
-            ]),
+            ),
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              GestureDetector(
+                  onTap: () =>
+                      context.read<ColorBloc>().add(ColorEvent.to_purple),
+                  child: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.purple,
+                          borderRadius: BorderRadius.circular(20)),
+                      width: 40,
+                      height: 40)),
+              GestureDetector(
+                  onTap: () =>
+                      context.read<ColorBloc>().add(ColorEvent.to_green),
+                  child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.green),
+                      width: 40,
+                      height: 40)),
+              GestureDetector(
+                  onTap: () =>
+                      context.read<ColorBloc>().add(ColorEvent.to_amber),
+                  child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.amber),
+                      width: 40,
+                      height: 40)),
+            ],
+          ),
+        ]),
       ),
     );
   }
